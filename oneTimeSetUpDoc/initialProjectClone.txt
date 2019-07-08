@@ -1,0 +1,48 @@
+savitas-MacBook-Pro:~ savitadoddamani$ ls -al ~/.ssh
+ls: /Users/savitadoddamani/.ssh: No such file or directory
+
+savitas-MacBook-Pro:~ savitadoddamani$ ssh-keygen -t rsa -b 4096 -C "puttaputti2@gmail.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/savitadoddamani/.ssh/id_rsa):
+Created directory '/Users/savitadoddamani/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /Users/savitadoddamani/.ssh/id_rsa.
+Your public key has been saved in /Users/savitadoddamani/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:something puttaputti2@gmail.com
+The key's randomart image is:
++---[RSA 4096]----+
+something
++----[SHA256]-----+
+
+savitas-MacBook-Pro:~ savitadoddamani$ eval "$(ssh-agent -s)"
+Agent pid 56765
+
+savitas-MacBook-Pro:~ savitadoddamani$ ssh-add -K ~/.ssh/id_rsa
+Enter passphrase for /Users/savitadoddamani/.ssh/id_rsa:
+
+Identity added: /Users/savitadoddamani/.ssh/id_rsa (puttaputti2@gmail.com)
+
+savitas-MacBook-Pro:~ savitadoddamani$ pbcopy < ~/.ssh/id_rsa.pub
+
+savitas-MacBook-Pro:~ savitadoddamani$ cd IdeaProjects/
+
+savitas-MacBook-Pro:IdeaProjects savitadoddamani$ git clone git@github.com:puttaputti/needs.git
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+
+savitas-MacBook-Pro:IdeaProjects savitadoddamani$ xcode-select --install
+xcode-select: note: install requested for command line developer tools
+
+savitas-MacBook-Pro:IdeaProjects savitadoddamani$ git clone git@github.com:puttaputti/needs.git
+Cloning into 'needs'...
+The authenticity of host 'github.com (140.82.118.4)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,140.82.118.4' (RSA) to the list of known hosts.
+warning: You appear to have cloned an empty repository.
+
+savitas-MacBook-Pro:IdeaProjects savitadoddamani$ ls
+breeJava8	needs
+
+savitas-MacBook-Pro:IdeaProjects savitadoddamani$ cd needs/
