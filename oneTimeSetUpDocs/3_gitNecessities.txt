@@ -14,3 +14,20 @@ export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 savitas-MacBook-Pro:needs savitadoddamani$ source ~/.bash_profile
 
 savitadoddamani@savitas-MacBook-Pro needs (master) $
+
+=============================================================================================================
+2. git auto completion (Ref: https://apple.stackexchange.com/questions/55875/git-auto-complete-for-branches-at-the-command-line)
+savitadoddamani@savitas-MacBook-Pro needs (master) $ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 65647  100 65647    0     0  95093      0 --:--:-- --:--:-- --:--:-- 95002
+
+savitadoddamani@savitas-MacBook-Pro needs (master) $ vi ~/.bash_profile
+
+Add following lines
+# for git command auto completion
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
+savitadoddamani@savitas-MacBook-Pro needs (master) $ source ~/.bash_profile
